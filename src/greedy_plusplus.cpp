@@ -381,15 +381,15 @@ Data my_greedy_plusplus(const Graph &graph, int T, int alpha) {
 // unweighted
 double my_triangle_greedy_plusplus(const Graph &graph, int T, int alpha) {
 
-    auto compare = [](const std::pair<double, int> &a, const std::pair<double, int> &b) {
+    auto compare = [](const std::pair<int, int> &a, const std::pair<int, int> &b) {
         return a.first > b.first;
     };
 
-    std::priority_queue<std::pair<double, int>, 
-                        std::vector<std::pair<double, int>>, 
+    std::priority_queue<std::pair<int, int>, 
+                        std::vector<std::pair<int, int>>, 
                         decltype(compare)> pq {compare};
 
-    std::vector<double> load(graph.n_vertices, 0);
+    std::vector<int> load(graph.n_vertices, 0);
     double maximum_triangle_density = 0;
 
     for (int t = 0;t < T; t++) {
